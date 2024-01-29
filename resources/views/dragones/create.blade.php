@@ -6,7 +6,7 @@
         @csrf
         <label>
             Nombre: 
-            <input type="text" name="name" value="{{old('name')}}">
+            <input type="text" name="nombre" value="{{old('nombre')}}">
             <br>
         </label>
 

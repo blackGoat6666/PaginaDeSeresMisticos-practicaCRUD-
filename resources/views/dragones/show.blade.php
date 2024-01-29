@@ -11,5 +11,10 @@
     <label>alas {{$dragon->alas}}</label>
     <label>peso {{$dragon->peso}}</label>
 
-    <a href="{{Route('dragones.edit', ['dragon' => $dragon])}}"><button>Editar dragon</button></a>
-@endsection
+    <a href="{{Route('dragones.edit', ['dragon' => $dragon])}}"><button>Editar registro de dragon</button></a>
+    <form action="{{route('dragones.destroy', $dragon)}}" method="POST">
+        @csrf
+        @method('delete')
+        <button type="submit">Eliminar registro de dragon</button>
+    </form>
+    @endsection

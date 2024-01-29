@@ -19,9 +19,9 @@ return new class extends Migration
             $table->string('tipo');
             $table->string('color');
             $table->string('nombre');
-            $table->string('foto');
+            $table->string('foto')->nullable();
             $table->boolean('alas');
-            $table->decimal('peso', 10, 2);
+            $table->decimal('peso', 10, 2)->nullable();
         });
     }
 

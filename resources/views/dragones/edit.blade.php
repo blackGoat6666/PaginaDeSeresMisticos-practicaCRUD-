@@ -2,11 +2,12 @@
 
 @section('content')
     <h1>Editar dragon</h1>
-    <form action="" method="POST">
+    <form action="{{route('dragones.update', $dragon)}}" method="post">
         @csrf
+        @method('put')
         <label>
             Nombre: 
-            <input type="text" name="name" value="{{old('name', $dragon->nombre)}}">
+            <input type="text" name="nombre" value="{{old('nombre', $dragon->nombre)}}">
             <br>
         </label>
 
@@ -42,13 +43,14 @@
             <br>
         </label>
         <label>
+            Tiene alas?:
             <select name="alas">
             @if($dragon->alas == 0)
-                <option value="0" selected>0</option>
-                <option value="1">1</option>
+                <option value="0" selected>No</option>
+                <option value="1">Si</option>
             @else
-                <option value="0">0</option>
-                <option value="1" selected>1</option>
+                <option value="0">No</option>
+                <option value="1" selected>Si</option>
             @endif
             </select>
             <br>

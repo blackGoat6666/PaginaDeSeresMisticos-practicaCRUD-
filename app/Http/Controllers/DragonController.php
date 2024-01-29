@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Dragon;
 use App\Enums\ColorDragon;
 use App\Enums\TipoDragon;
+use Illuminate\Http\Request;
 
 class DragonController extends Controller
 {
@@ -21,7 +21,12 @@ class DragonController extends Controller
     public function create() {
         $tipos = TipoDragon::getValues();
         $colores = ColorDragon::getValues();
-        return view('dragones.create', compact('tipos'), compact('colores'));
+        return view('dragones.create', compact('tipos', 'colores'));
+    }
+
+    public function store(Request $request) {
+        $dragon = Dragon::create($request->all());
+        return view('dragones.show', compact('dragon'));
     }
 
     public function edit(Dragon $dragon) {
@@ -29,4 +34,15 @@ class DragonController extends Controller
         $colores = ColorDragon::getValues();
         return view('dragones.edit', compact('dragon', 'tipos', 'colores'));
     }
+
+    public function update(Request $request, Dragon $dragon) {
+        $dragon ->update($request->all());
+        return view('dragones.show', compact('dragon'));
+    }
+
+    public function destroy(Dragon $dragon) {
+        $dragon->delete();
+        return redirect()->route('dragones.index');
+    }
+    
 }

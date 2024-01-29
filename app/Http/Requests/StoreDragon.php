@@ -11,7 +11,7 @@ class StoreDragon extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,12 @@ class StoreDragon extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'nombre' => 'required',
+            'tipo' => 'required',
+            'color' => 'required',
+            'foto' => 'nullable',
+            'alas' => 'required',
+            'peso' => 'sometimes|numeric|between:2.00,5000.00',
         ];
     }
 }
