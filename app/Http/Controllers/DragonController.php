@@ -25,6 +25,8 @@ class DragonController extends Controller
     }
 
     public function edit(Dragon $dragon) {
-        return view('dragones.edit', compact('dragon'));
+        $tipos = TipoDragon::getValues();
+        $colores = ColorDragon::getValues();
+        return view('dragones.edit', compact('dragon', 'tipos', 'colores'));
     }
 }

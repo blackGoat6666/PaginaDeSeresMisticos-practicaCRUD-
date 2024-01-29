@@ -6,46 +6,45 @@
         @csrf
         <label>
             Nombre: 
-            <br>
             <input type="text" name="name" value="{{old('name')}}">
+            <br>
         </label>
 
-        <br>
         <label>
             tipo: 
-            <br>
             <select name="tipo">
                 @foreach($tipos as $tipo)
                     <option value="{{ $tipo }}">{{ $tipo }}</option>
                 @endforeach
             </select>
+            <br>
         </label>
         <label>
             color: 
-            <br>
             <select name="color">
                 @foreach($colores as $color)
                     <option value="{{ $color }}">{{ $color }}</option>
                 @endforeach
             </select>
+            <br>
         </label>
         <label>
             peso: 
-            <br>
             <input type="text" name="peso" value="{{old('peso')}}">
+            <br>
         </label>
         <label>
             tiene alas: 
-            <br>
             <select name="alas">
                 <option value="1">Sí</option>
                 <option value="0">No</option>
             </select>
+            <br>
         </label>
         <label>
             foto: 
-            <br>
             <input type="text" name="foto" value="{{old('foto')}}">
+            <br>
         </label>
         <br>
         <button type="submit">Registrar</button>

@@ -10,4 +10,6 @@
     <label>imagen {{$dragon->imagen}}</label>
     <label>alas {{$dragon->alas}}</label>
     <label>peso {{$dragon->peso}}</label>
+
+    <a href="{{Route('dragones.edit', ['dragon' => $dragon])}}"><button>Editar dragon</button></a>
 @endsection
